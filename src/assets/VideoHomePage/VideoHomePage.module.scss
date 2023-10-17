@@ -1,0 +1,80 @@
+.wrapper {
+    max-height: 5000px;
+    padding: 20px 0;
+    overscroll-behavior-y: contain;
+    overflow-y: auto;
+}
+.video-header {
+    display: block;
+}
+.video-info {
+    display: flex;
+    margin-left: 100px;
+}
+.avatar {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 50%;
+    position: relative;
+    z-index: -1;
+}
+.video-text {
+    padding-left: 30px;
+}
+.video-username {
+    margin-top: 0;
+    font-size: 1.6rem;
+    color: #161823;
+    line-height: 2;
+}
+.video-name {
+    margin-top: 6px;
+    margin-left: 5px;
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+.video-user {
+    display: flex;
+}
+.video-caption {
+    font-weight: 700;
+}
+.follow-btn {
+    margin-left: 280px;
+}
+.video-body {
+    display: flex;
+}
+.video-homepage {
+    border-radius: 3%;
+    height: 100%;
+    margin-left: 200px;
+    width: 270px;
+    z-index: -1;
+}
+.video-status {
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+.btn-icon {
+    margin: 8px 6px 0 0;
+    align-items: center;
+    background-color: rgba(22, 24, 35, 0.059);
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    height: 48px;
+    justify-content: center;
+    width: 48px;
+}
+.text-status {
+    color: rgba(22, 24, 35, 0.75);
+    font-family: TikTokFont, Arial, Tahoma, PingFangSC, sans-serif;
+    font-size: 12px;
+    line-height: 16px;
+    text-align: center;
+    margin-right: 4px;
+}

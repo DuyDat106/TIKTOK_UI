@@ -1,0 +1,88 @@
+.search,
+.search-results {
+    width: 420px;
+}
+.search {
+    position: relative;
+    height: var(--search-height);
+    padding-left: 16px;
+    display: flex;
+    background-color: rgba(22, 24, 35, 0.06);
+    border-radius: var(--search-border-radius);
+    border: 1.5px solid transparent;
+    input {
+        flex: 1;
+        height: 100%;
+        padding-right: 40px;
+        color: var(--black);
+        font-size: 1.6rem;
+        caret-color: var(--primary);
+        background-color: transparent;
+        font-family: 'Open Sans', sans-serif;
+    }
+    input:not(:placeholder-shown) ~ .search-btn {
+        color: rgba(22, 24, 35, 0.75);
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: var(--search-top-spacer);
+        right: 52px;
+        height: calc(var(--search-height) - var(--search-top-spacer) * 2);
+        background-color: rgba(22, 24, 35, 0.2);
+        width: 0.5px;
+    }
+    &:hover {
+        border: 1px solid rgba(22, 24, 35, 0.2);
+    }
+    &:focus-within {
+        border: 1px solid rgba(22, 24, 35, 0.2);
+    }
+}
+
+.search-title {
+    padding: 5px 12 px;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: rgba(22, 24, 35, 0.5);
+}
+.clear,
+.load {
+    font-size: 1.4rem;
+    position: absolute;
+    right: calc(var(--search-button-width) + 16px);
+    top: 55%;
+    transform: translateY(-50%);
+    color: rgba(22, 24, 35, 0.3);
+    background-color: transparent;
+    cursor: pointer;
+}
+.load {
+    animation: spinner 0.8s linear infinite;
+}
+@keyframes spinner {
+    from {
+        transform: translateY(-50%) rotate(0);
+    }
+    to {
+        transform: translateY(-50%) rotate(360deg);
+    }
+}
+.search-btn {
+    font-size: 2.4rem;
+    color: rgba(22, 24, 35, 0.4);
+    width: var(--search-button-width);
+    height: 100%;
+    border-top-right-radius: var(--search-border-radius);
+    border-bottom-right-radius: var(--search-border-radius);
+    padding-top: 9px;
+    &:hover {
+        cursor: pointer;
+        background-color: rgba(22, 24, 35, 0.08);
+        color: black;
+    }
+    &:active {
+        background-color: rgba(22, 24, 35, 0.03);
+    }
+}
