@@ -1,0 +1,31 @@
+.wrapper {
+    position: relative;
+}
+.video-container {
+    width: 350px;
+    height: 600px;
+    border-radius: 12px; /* Đặt bo tròn 4 góc */
+    overflow: hidden; /* Ẩn nội dung vượt ra khỏi góc bo tròn */
+    margin-left: 300px;
+}
+
+.video-homepage {
+    width: 100%;
+    height: 100%; /* Đảm bảo video đầy đủ 100% theo chiều rộng và cao */
+    object-fit: cover;
+}
+.play-pause,
+.btn-mute {
+    position: absolute;
+    color: rgba(249, 249, 250, 1);
+    bottom: 20px;
+    font-size: 2.8rem;
+    padding: 20px 20px;
+    cursor: pointer;
+}
+.btn-mute {
+    right: 20px;
+}
+.play-pause {
+    left: 340px;
+}

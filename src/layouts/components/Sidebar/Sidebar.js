@@ -16,6 +16,7 @@ import {
     LiveActiveIcon,
 } from '~/components/Icons';
 import FollowerAccount from '~/components/FollowerAccount';
+import SidebarFooter from './SidebarFooter';
 const cx = classNames.bind(styles);
 const INIT_PAGE = 1;
 const PER_PAGE = 15;
@@ -61,7 +62,8 @@ function Sidebar() {
                 ></MenuItem>
             </Menu>
             <SuggestedAccounts label="Suggested accounts" data={suggestedUser} />
-            <FollowerAccount label="Following accounts" data1={followUser} />
+            {/* <FollowerAccount label="Following accounts" data1={followUser} /> */}
+            <SidebarFooter />
         </aside>
     );
 }

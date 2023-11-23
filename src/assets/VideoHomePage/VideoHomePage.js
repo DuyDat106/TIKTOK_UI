@@ -1,9 +1,9 @@
-import VideoResult from './Video';
+import VideoResult from './PageVideo';
 function VideoHomePage({ data = [] }) {
     return (
         <div>
-            {data.map((data) => (
-                <VideoResult data={data} key={data.id} />
+            {data.map((data, value) => (
+                <VideoResult data={data} key={value} />
             ))}
         </div>
     );

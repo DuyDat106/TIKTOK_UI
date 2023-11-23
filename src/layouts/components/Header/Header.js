@@ -132,7 +132,7 @@ function Header() {
                         {currentUser ? (
                             <Image
                                 className={cx('user-avatar')}
-                                src="https://p16-sign-useast2a.tiktokcdn.com/tos-useast2a-avt-0068-giso/4a77b49591328762c9c038f3608416c0~c5_720x720.jpeg?x-expires=1696863600&x-signature=nRBYOg3icfWhQQHRCKBapPwcON0%3D"
+                                src="https://scontent.fhan14-3.fna.fbcdn.net/v/t39.30808-1/323626299_692732655680842_5844500466309889523_n.jpg?stp=cp0_dst-jpg_p60x60&_nc_cat=110&ccb=1-7&_nc_sid=5f2048&_nc_ohc=yqta3baes2UAX_EPSWf&_nc_ht=scontent.fhan14-3.fna&oh=00_AfBd5HGkfWrYV1CQeaSwMbJLayuVYYC30CZ_5LcNPL-oLQ&oe=653BADA0"
                                 alt="avt"
                                 fallBack="https://d1hjkbq40fs2x4.cloudfront.net/2017-08-21/files/landscape-photography_1645.jpg"
                             />

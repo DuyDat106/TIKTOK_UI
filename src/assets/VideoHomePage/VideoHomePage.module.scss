@@ -1,15 +1,16 @@
-.wrapper {
-    max-height: 5000px;
+.wrapper-content {
+    display: flex;
+    flex-direction: column;
     padding: 20px 0;
-    overscroll-behavior-y: contain;
-    overflow-y: auto;
+    border-bottom: 1px solid #e7e7e7;
 }
 .video-header {
     display: block;
+    margin-left: 200px;
 }
 .video-info {
     display: flex;
-    margin-left: 100px;
+    overflow: scroll;
 }
 .avatar {
     width: 60px;
@@ -24,35 +25,40 @@
 }
 .video-username {
     margin-top: 0;
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     color: #161823;
     line-height: 2;
+    &:hover {
+        text-decoration: underline;
+        cursor: pointer;
+    }
 }
 .video-name {
-    margin-top: 6px;
+    margin-top: 9px;
     margin-left: 5px;
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     font-weight: 700;
+    cursor: pointer;
 }
 .video-user {
     display: flex;
+    cursor: pointer;
 }
 .video-caption {
     font-weight: 700;
 }
 .follow-btn {
-    margin-left: 280px;
+    cursor: pointer;
 }
 .video-body {
     display: flex;
 }
-.video-homepage {
-    border-radius: 3%;
-    height: 100%;
-    margin-left: 200px;
-    width: 270px;
-    z-index: -1;
+
+.wrapper-video {
+    align-self: auto;
+    scroll-snap-type: y mandatory;
 }
+
 .video-status {
     padding-left: 20px;
     display: flex;
@@ -78,3 +84,12 @@
     text-align: center;
     margin-right: 4px;
 }
+// .wrapper-play{
+//     left: 12px;
+//     position: absolute;
+//     padding: 10px;
+//     width: 40px;
+//     height: 40px;
+//     transition: opacity 0.3s ease 0s;
+//     bottom: 26px;
+// }

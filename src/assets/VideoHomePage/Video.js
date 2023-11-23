@@ -1,49 +1,82 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPause, faPlay, faVolumeHigh, faVolumeXmark } from '@fortawesome/free-solid-svg-icons';
 import classNames from 'classnames/bind';
-import styles from './VideoHomePage.module.scss';
-import { CommentIcon, LikeIcon, ShareIcon } from '~/components/Icons';
-import Button from '~/components/Button';
-import Image from '~/components/Image';
+import styles from './Video.module.scss';
+import React, { useEffect, useRef, useState } from 'react';
+import { useElementOnScreen } from '~/Hooks';
+
 const cx = classNames.bind(styles);
-function VideoResult({ data }) {
-    console.log(data);
+function Video({ data }) {
+    const [playing, setPlaying] = useState(false);
+    const [isMuted, setIsMuted] = useState(false);
+    const videoRef = useRef(null);
+
+    const options = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.3,
+    };
+    const isVisibile = useElementOnScreen(options, videoRef);
+    const handlePlay = () => {
+        try {
+            if (playing) {
+                videoRef.current.pause();
+                setPlaying(!playing);
+            } else {
+                videoRef.current.play();
+                setPlaying(!playing);
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    };
+    const handleMute = () => {
+        if (videoRef.current) {
+            videoRef.current.muted = !isMuted;
+            setIsMuted(!isMuted);
+        }
+    };
+    useEffect(() => {
+        if (isVisibile) {
+            if (!playing) {
+                videoRef.current.play();
+                setPlaying(true);
+            }
+        } else {
+            if (playing) {
+                videoRef.current.pause();
+                setPlaying(false);
+            }
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [isVisibile]);
+
     return (
         <div className={cx('wrapper')}>
-            <header className={cx('video-header')}>
-                <div className={cx('video-info')}>
-                    <div>
-                        <Image className={cx('avatar')} src={data.avatar} alt="" key={data.id} />
-                    </div>
-                    <div className={cx('video-text')}>
-                        <div className={cx('video-user')}>
-                            <p className={cx('video-username')}>{data.nickname}</p>
-                            <p className={cx('video-name')}>{`${data.first_name} ${data.last_name}`}</p>
-                            <Button outline className={cx('follow-btn')}>
-                                Follow
-                            </Button>
-                        </div>
-                        <p className={cx('video-caption')}>{data.popular_video.description}</p>
-                    </div>
-                </div>
-            </header>
-            <div className={cx('video-body')}>
-                <video className={cx('video-homepage')} controls src={data.popular_video.file_url}></video>
-                <div className={cx('video-status')}>
-                    <button className={cx('btn-icon')}>
-                        <LikeIcon />
-                    </button>
-                    <strong className={cx('text-status')}>{data.likes_count}</strong>
-                    <button className={cx('btn-icon')}>
-                        <CommentIcon />
-                    </button>
-                    <strong className={cx('text-status')}>{data.popular_video.comments_count}</strong>
-                    <button className={cx('btn-icon')}>
-                        <ShareIcon />
-                    </button>
-                    <strong className={cx('text-status')}>{data.popular_video.shares_count}</strong>
-                </div>
+            <div className={cx('video-container')}>
+                <video loop ref={videoRef} className={cx('video-homepage')} src={data.file_url}></video>
             </div>
+
+            {!playing ? (
+                <span className={cx('play-pause')} onClick={handlePlay}>
+                    <FontAwesomeIcon icon={faPlay} />
+                </span>
+            ) : (
+                <span className={cx('play-pause')} onClick={handlePlay}>
+                    <FontAwesomeIcon icon={faPause} />
+                </span>
+            )}
+            {!isMuted ? (
+                <span className={cx('btn-mute')} onClick={handleMute}>
+                    <FontAwesomeIcon icon={faVolumeHigh} />
+                </span>
+            ) : (
+                <span className={cx('btn-mute')} onClick={handleMute}>
+                    <FontAwesomeIcon icon={faVolumeXmark} />
+                </span>
+            )}
         </div>
     );
 }
 
-export default VideoResult;
+export default Video;

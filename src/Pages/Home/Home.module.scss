@@ -1,0 +1,7 @@
+.wrapper {
+    height: 100vh;
+    padding: 20px 0;
+    overflow-y: scroll;
+    border-top: 0.5px solid #cbcbcb;
+    scroll-snap-type: y mandatory;
+}

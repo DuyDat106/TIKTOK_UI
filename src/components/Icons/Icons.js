@@ -204,3 +204,8 @@ export const ShareIcon = ({ width = '2.4rem', height = '2.4rem', className }) =>
         ></path>
     </svg>
 );
+export const ImageIcon = ({ width = '2.4rem', height = '2.4rem', className }) => (
+    <svg xmlns="http://www.w3.org/2000/svg" className={className} width={width} height={height} fill="currentColor">
+        <use xlinkHref="#eh-logo-a5ac4daf"></use>
+    </svg>
+);

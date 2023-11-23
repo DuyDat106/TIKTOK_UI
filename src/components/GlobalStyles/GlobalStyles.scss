@@ -14,7 +14,6 @@
     --search-height: 46px;
     --search-top-spacer: 9px;
     --search-button-width: 52px;
-    height: 2000px;
 }
 html {
     font-size: 62.5%;
@@ -31,7 +30,7 @@ body {
     line-height: 1.5;
     text-rendering: optimizespeed;
     color: var(--text-color);
-    overflow-y: overlay;
+    overflow-y: scroll;
 }
 // Scrollbar CSS
 html *::-webkit-scrollbar {
